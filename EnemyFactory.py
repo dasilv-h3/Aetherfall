@@ -1,7 +1,5 @@
 import random
 
-from matplotlib.pylab import character
-
 class Enemy:
     def __init__(
         self,
