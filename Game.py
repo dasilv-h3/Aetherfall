@@ -1,8 +1,9 @@
 from ZoneState import VillageState, ZoneState
 from Utils import inputMenu
+from Character import Character
 
 class Game:
-    def __init__(self, character, enemy_factory, starting_location: "ZoneState"):
+    def __init__(self, character: Character, enemy_factory, starting_location: "ZoneState"):
         self.character = character
         self.enemy_factory = enemy_factory
         self.location = starting_location
@@ -12,20 +13,22 @@ class Game:
 
         while self.character.hp > 0:
             if isinstance(self.location, VillageState):
-                self.villageMenu()
+                self.villageMenu(self.location)
             else:
                 self.exploreMenu()
         
         print("Game Over! Your character has been defeated.")
         exit(0)
     
-    def villageMenu(self):
+    def villageMenu(self, village: VillageState):
         choice = inputMenu("You are in the village. What would you like to do?", ["Talk to villager", "Visit the merchant", "Explore the world !", "Quit game"])
 
         if choice == 1:
             print("You talk to the villagers and learn about the dangers lurking in the nearby forest.") # TODO : Add more dialogue options and interactions
+            village.strat.talkToVillagers().execute(self)
         elif choice == 2:
             print("You visit the merchant and browse their wares. You can buy potions, weapons, and armor to help you on your journey.") # TODO : Implement shop system
+            village.strat.merchantEvent().execute(self)
         elif choice == 3:
             print("You leave the village and head towards the forest, ready to face the challenges ahead.") # TODO : Implement zone transition logic
             self.travelMenu()
@@ -59,8 +62,12 @@ class Game:
         choice = inputMenu("What would you like to do?", ["Continue exploring", "Return to village"])
 
         if choice == 1:
-            print("You continue exploring the area, facing various challenges and enemies along the way.") # TODO : Implement exploration logic (e.g., random encounters, events, loot)
+            print("You continue exploring the area")  
+            event = self.location.nextEvent(self)
+            if event:
+                event.execute(self)
         elif choice == 2:
-            print("You decide to return to the village to rest and resupply.") # TODO : Implement zone transition logic
+            print("You decide to return to the village to rest and resupply.")
             self.location = self.location.connections["village"]
+            self.location.onEnter(self)
            
