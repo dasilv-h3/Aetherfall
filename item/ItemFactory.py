@@ -2,7 +2,7 @@ import json
 import random
 import os
 from typing import Optional, List
-from Item import Item, Weapon, Armor, Consumable, ItemType, ModifierType
+from item.Item import Item, Weapon, Armor, Consumable, ItemType, ModifierType
 
 class ItemFactory:    
     def __init__(self, items_file: str = "items.json"):

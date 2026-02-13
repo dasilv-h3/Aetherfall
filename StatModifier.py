@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from Character import Character
-    from Item import Item, ModifierType
+    from entity.Character import Character
+    from item.Item import Item
 
 class CharacterDecorator(ABC):
     def __init__(self, character: "Character"):
@@ -31,7 +31,7 @@ class StatModifierDecorator(CharacterDecorator):
         if stat_name not in self.item.affected_stats:
             return base_value
         
-        from Item import ModifierType
+        from item.Item import ModifierType
         if self.item.modifier_type == ModifierType.ADD:
             return base_value + self.item.value
         elif self.item.modifier_type == ModifierType.PERCENTAGE:
@@ -52,14 +52,14 @@ class StatCalculator:
         percentage_modifier = 0
         
         if inventory.equipped_weapon and stat_name in inventory.equipped_weapon.affected_stats:
-            from Item import ModifierType
+            from item.Item import ModifierType
             if inventory.equipped_weapon.modifier_type == ModifierType.ADD:
                 total_modifier += inventory.equipped_weapon.value
             else:
                 percentage_modifier += inventory.equipped_weapon.value
         
         if inventory.equipped_armor and stat_name in inventory.equipped_armor.affected_stats:
-            from Item import ModifierType
+            from item.Item import ModifierType
             if inventory.equipped_armor.modifier_type == ModifierType.ADD:
                 total_modifier += inventory.equipped_armor.value
             else:

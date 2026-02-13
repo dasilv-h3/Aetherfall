@@ -1,7 +1,7 @@
-from ZoneState import VillageState, ZoneState
+from zone.ZoneState import VillageState, ZoneState
 from Utils import inputMenu
-from Character import Character
-from InventoryMenu import InventoryMenu
+from entity.Character import Character
+from inventory.InventoryMenu import InventoryMenu
 
 class Game:
     def __init__(self, character: Character, enemy_factory, starting_location: "ZoneState"):

@@ -1,5 +1,5 @@
 import Game
-from ZoneStrategy import ForestStrategy, VillageStrategy, ZoneStrategy
+from zone.ZoneStrategy import ForestStrategy, VillageStrategy, ZoneStrategy
 
 class ZoneState():
     def __init__(self, name: str, strategy: ZoneStrategy):

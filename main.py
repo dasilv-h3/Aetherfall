@@ -1,9 +1,9 @@
-from Character import *
+from entity.Character import *
 from EnemyFactory import *
 from Game import Game
-from ZoneState import ForestState, VillageState
+from zone.ZoneState import ForestState, VillageState
 from Utils import inputMenu
-from ItemFactory import ItemFactory
+from item.ItemFactory import ItemFactory
 
 def buildGame() -> Game:
     playerName = input("Enter your character's name: ")
