@@ -12,7 +12,6 @@ class Enemy:
         defense: int,
         minNumberOfAttacks: int = 1,
         maxNumberOfAttacks: int = 1,
-        stealChance: bool = False,
         attackTypeResistance: list = None,
     ):
         self.name = name
@@ -24,7 +23,6 @@ class Enemy:
         self.defense = defense
         self.minNumberOfAttacks = minNumberOfAttacks
         self.maxNumberOfAttacks = maxNumberOfAttacks
-        self.stealChance = stealChance
         self.attackTypeResistance = attackTypeResistance if attackTypeResistance is not None else []
 
     def attack(self, character):

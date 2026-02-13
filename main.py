@@ -2,11 +2,22 @@ from Character import *
 from EnemyFactory import *
 from Game import Game
 from ZoneState import ForestState, VillageState
-from Utils import inputMenu 
+from Utils import inputMenu
+from ItemFactory import ItemFactory
 
 def buildGame() -> Game:
-    player = Warrior("Charlie")
+    playerName = input("Enter your character's name: ")
+    player = Warrior(playerName)
     enemy_factory = EnemyFactory()
+    
+    # Initialise l'ItemFactory
+    item_factory = ItemFactory()
+    
+    # Ajoute quelques potions
+    for _ in range(3):
+        potion = item_factory.createConsumable("Potion de soin")
+        if potion:
+            player.inventory.addItem(potion)
 
     village = VillageState()
     forest = ForestState(enemy_factory)
