@@ -12,7 +12,6 @@ class ZoneStrategy(ABC):
 
 class VillageStrategy(ZoneStrategy):
     def nextEvent(self, game: "Game") -> Optional[Event]:
-        print("You are in a peaceful village. You can rest, talk to villagers, or prepare for your next adventure.")
         return None
 
     def talkToVillagers(self):
@@ -32,11 +31,8 @@ class ForestStrategy(ZoneStrategy):
         self.key_can_drop = True
     
     def nextEvent(self, game: "Game") -> Optional[Event]:
-        print(f"Forest events remaining - Combats: {self.remaining_combats}, Chests: {self.remaining_chests}")
         if self.remaining_combats <= 0 and self.remaining_chests <= 0:
-            print("You have cleared the forest! Time to move on to the next zone.")
-            # trigger ask rerun or move to village
-            
+            print("You have cleared the forest! Time to move on to the next zone.")            
             return None
         
         choices = []

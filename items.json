@@ -1,0 +1,125 @@
+{
+  "weapons": [
+    {
+      "name": "Épée de fer",
+      "minimalLevel": 1,
+      "type": "weapon",
+      "modifierType": "add",
+      "value": 5,
+      "affectedStats": ["strength"],
+      "apparitionRate": 50
+    },
+    {
+      "name": "Bâton magique",
+      "minimalLevel": 3,
+      "type": "weapon",
+      "modifierType": "add",
+      "value": 8,
+      "affectedStats": ["intelligence"],
+      "apparitionRate": 30
+    },
+    {
+      "name": "Dague d'assassin",
+      "minimalLevel": 2,
+      "type": "weapon",
+      "modifierType": "add",
+      "value": 4,
+      "affectedStats": ["agility", "critChance"],
+      "apparitionRate": 40
+    },
+    {
+      "name": "Épée légendaire",
+      "minimalLevel": 10,
+      "type": "weapon",
+      "modifierType": "add",
+      "value": 15,
+      "affectedStats": ["strength"],
+      "apparitionRate": 5
+    },
+    {
+      "name": "Masse d'armes",
+      "minimalLevel": 5,
+      "type": "weapon",
+      "modifierType": "add",
+      "value": 10,
+      "affectedStats": ["strength"],
+      "apparitionRate": 25
+    }
+  ],
+  "armors": [
+    {
+      "name": "Armure de cuir",
+      "minimalLevel": 1,
+      "type": "armor",
+      "modifierType": "add",
+      "value": 3,
+      "affectedStats": ["defense"],
+      "apparitionRate": 50
+    },
+    {
+      "name": "Robe mystique",
+      "minimalLevel": 2,
+      "type": "armor",
+      "modifierType": "add",
+      "value": 2,
+      "affectedStats": ["defense", "intelligence"],
+      "apparitionRate": 35
+    },
+    {
+      "name": "Armure de plates",
+      "minimalLevel": 5,
+      "type": "armor",
+      "modifierType": "add",
+      "value": 8,
+      "affectedStats": ["defense"],
+      "apparitionRate": 20
+    },
+    {
+      "name": "Armure du dragon",
+      "minimalLevel": 12,
+      "type": "armor",
+      "modifierType": "add",
+      "value": 15,
+      "affectedStats": ["defense", "hpMax"],
+      "apparitionRate": 3
+    },
+    {
+      "name": "Tunique légère",
+      "minimalLevel": 1,
+      "type": "armor",
+      "modifierType": "add",
+      "value": 2,
+      "affectedStats": ["defense", "agility"],
+      "apparitionRate": 45
+    }
+  ],
+  "consumables": [
+    {
+      "name": "Potion de soin",
+      "minimalLevel": 1,
+      "type": "consumable",
+      "modifierType": "add",
+      "value": 30,
+      "affectedStats": ["hp"],
+      "apparitionRate": 70
+    },
+    {
+      "name": "Antidote",
+      "minimalLevel": 1,
+      "type": "consumable",
+      "modifierType": "add",
+      "value": 0,
+      "affectedStats": ["status"],
+      "apparitionRate": 50
+    },
+    {
+      "name": "Bombe",
+      "minimalLevel": 3,
+      "type": "consumable",
+      "modifierType": "add",
+      "value": 25,
+      "affectedStats": ["damage"],
+      "apparitionRate": 30
+    }
+  ]
+}
