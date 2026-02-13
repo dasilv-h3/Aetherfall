@@ -12,14 +12,11 @@ class Game:
     def run(self):
         self.location.onEnter(self)
 
-        while self.character.hp > 0:
+        while True:
             if isinstance(self.location, VillageState):
                 self.villageMenu(self.location)
             else:
                 self.exploreMenu()
-        
-        print("Game Over! Your character has been defeated.")
-        exit(0)
     
     def villageMenu(self, village: VillageState):
         choice = inputMenu("You are in the village. What would you like to do?", [
