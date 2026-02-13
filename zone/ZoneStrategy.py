@@ -45,7 +45,8 @@ class ForestStrategy(ZoneStrategy):
         if kind == "combat":
             self.remaining_combats -= 1
             enemy_type = random.choice(["Wolf", "Bandit", "Skeleton"])
-            enemy_level = random.randint(1, 5)
+            player_level = game.character.level
+            enemy_level = random.randint(max(1, player_level - 1), player_level + 2)
             enemy = self.enemy_factory.create_enemy(enemy_type, enemy_level)
             return CombatEvent(enemy)
         else:

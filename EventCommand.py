@@ -37,4 +37,14 @@ class CombatEvent(Event):
         self.enemy = enemy
 
     def execute(self, game) -> None:
-        print(f"\n[Combat] Un {self.enemy.name} niveau {self.enemy.level} apparaît !")
+        from CombatStrategy import CombatSystem
+        combat = CombatSystem(game.character, self.enemy)
+        victory = combat.start_combat()
+        
+        if not victory:
+            print("\nYou must return to the village to heal...")
+            # The player is teleported to the village
+            if hasattr(game.location, 'connections') and 'village' in game.location.connections:
+                game.location = game.location.connections['village']
+                game.character.hp = game.character.hpMax  # Heals the player at the village
+                print("You wake up in the village, fully healed.")
