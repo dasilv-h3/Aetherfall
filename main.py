@@ -1,5 +1,5 @@
 from entity.Character import *
-from EnemyFactory import *
+from entity.EnemyFactory import *
 from Game import Game
 from zone.ZoneState import ForestState, VillageState
 from Utils import inputMenu

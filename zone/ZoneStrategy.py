@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 import random
 from typing import Optional
-from EnemyFactory import EnemyFactory
+from entity.EnemyFactory import EnemyFactory
 from EventCommand import ChestEvent, CombatEvent, DialogueEvent, Event, ShopEvent
 from Game import *
 
