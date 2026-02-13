@@ -2,6 +2,7 @@ from zone.ZoneState import VillageState, ZoneState
 from Utils import inputMenu
 from entity.Character import Character
 from inventory.InventoryMenu import InventoryMenu
+from SaveGame import SaveGame
 
 class Game:
     def __init__(self, character: Character, enemy_factory, starting_location: "ZoneState"):
@@ -24,7 +25,8 @@ class Game:
             "Visit the merchant", 
             "Open inventory",
             "View stats",
-            "Explore the world !", 
+            "Explore the world !",
+            "Save the game",
             "Quit game"
         ])
 
@@ -42,6 +44,9 @@ class Game:
             print("You leave the village and head towards the forest, ready to face the challenges ahead.") # TODO : Implement zone transition logic
             self.travelMenu()
         elif choice == 6:
+            saveGame = SaveGame()
+            saveGame.save(self.character)
+        elif choice == 7:
             print("Thank you for playing! Goodbye.")
             exit(0)
     
@@ -88,4 +93,3 @@ class Game:
             print("You decide to return to the village to rest and resupply.")
             self.location = self.location.connections["village"]
             self.location.onEnter(self)
-           

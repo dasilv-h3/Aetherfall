@@ -4,20 +4,23 @@ from Game import Game
 from zone.ZoneState import ForestState, VillageState
 from Utils import inputMenu
 from item.ItemFactory import ItemFactory
+from SaveGame import SaveGame
 
-def buildGame() -> Game:
-    playerName = input("Enter your character's name: ")
-
-    player_class_choice = inputMenu("Choose your class", ["Warrior", "Mage", "Rogue"])
-
-    if player_class_choice == 1:
-        player = Warrior(playerName)
-    elif player_class_choice == 2:
-        player = Mage(playerName)
-    elif player_class_choice == 3:
-        player = Thief(playerName)
+def buildGame(character=None) -> Game:
+    if character:
+        player = character
     else:
-        player = Warrior(playerName)  # Default to Warrior if invalid choice
+        playerName = input("Enter your character's name: ")
+
+        player_class_choice = inputMenu("Choose your class", ["Warrior", "Mage", "Rogue"])
+        if player_class_choice == 1:
+            player = Warrior(playerName)
+        elif player_class_choice == 2:
+            player = Mage(playerName)
+        elif player_class_choice == 3:
+            player = Thief(playerName)
+        else:
+            player = Warrior(playerName)  # Default to Warrior if invalid choice
 
     enemy_factory = EnemyFactory()
     item_factory = ItemFactory()
@@ -42,18 +45,21 @@ def buildGame() -> Game:
 
 
 def main():
-    choice = inputMenu("Main Menu", ["Nouvelle partie", "Charger partie", "Quitter"])
+    while True:
+        choice = inputMenu("Main Menu", ["Nouvelle partie", "Charger partie", "Quitter"])
 
-    if choice == 1:
-        random.seed() # Initialize random seed for the game
-        game = buildGame()
-        game.run()
-    elif choice == 2:
-        print("Load game feature not implemented yet.")
-        exit(0)
-    elif choice == 3:
-        exit(0)
-    return 0
+        if choice == 1:
+            random.seed()
+            game = buildGame()
+            game.run()
+        elif choice == 2:
+            save_manager = SaveGame()
+            character = save_manager.load()
+            if character:
+                game = buildGame(character)
+                game.run()
+        elif choice == 3:
+            exit(0)
 
 if __name__ == "__main__":
     main()
