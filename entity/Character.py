@@ -53,7 +53,7 @@ class Character:
 class Warrior(Character):
 
     def __init__(self, name):
-        return super().__init__(name=name, type="Warrior", defense= 0, hp= 100 + (100*0.5), hpMax= 100 + (100*0.5), strength=50)
+        return super().__init__(name=name, type="Warrior", defense=12, hp=120, hpMax=120, strength=25, critChance=5)
     
     def attack(self, enemy):
         print(f"{self.name} lvl {self.level} attacks {enemy.name}!")
@@ -76,7 +76,7 @@ class Warrior(Character):
 class Mage(Character):
 
     def __init__(self, name):
-        return super().__init__(name=name, type="Mage", defense= 50, hp= 100 * (100*0.5), hpMax= 100 * (100*0.5), intelligence=50)
+        return super().__init__(name=name, type="Mage", defense=5, hp=80, hpMax=80, intelligence=30, strength=10)
     
     def attack(self, enemy):
         print(f"{self.name} lvl {self.level} casts a spell on {enemy.name}!")
@@ -99,7 +99,7 @@ class Mage(Character):
 class Thief(Character):
 
     def __init__(self, name):
-        return super().__init__(name=name, type="Thief", defense= 25, hp= 100, hpMax= 100, agility=60, strength=35)
+        return super().__init__(name=name, type="Thief", defense=8, hp=100, hpMax=100, agility=25, strength=18, critChance=15)
     
     def attack(self, enemy):
         print(f"{self.name} lvl {self.level} strikes {enemy.name} swiftly!")

@@ -45,13 +45,14 @@ class ForestStrategy(ZoneStrategy):
         if kind == "combat":
             self.remaining_combats -= 1
             enemy_type = random.choice(["Wolf", "Bandit", "Skeleton"])
-            enemy_level = random.randint(1, 5)
+            player_level = game.character.level
+            enemy_level = random.randint(max(1, player_level - 1), player_level + 2)
             enemy = self.enemy_factory.create_enemy(enemy_type, enemy_level)
             return CombatEvent(enemy)
         else:
             self.remaining_chests -= 1
-            if self.key_can_drop and random.random() < 0.1: # TODO : Adjust drop chance as needed and player inventory conditions
+            if  self.key_can_drop and random.random() < 0.1:
                 self.key_can_drop = False
-                return ChestEvent(loot_table=["Dungeon Key"])
+                return ChestEvent(["Clé du donjon"])
 
             return ChestEvent()

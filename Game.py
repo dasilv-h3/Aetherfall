@@ -12,14 +12,11 @@ class Game:
     def run(self):
         self.location.onEnter(self)
 
-        while self.character.hp > 0:
+        while True:
             if isinstance(self.location, VillageState):
                 self.villageMenu(self.location)
             else:
                 self.exploreMenu()
-        
-        print("Game Over! Your character has been defeated.")
-        exit(0)
     
     def villageMenu(self, village: VillageState):
         choice = inputMenu("You are in the village. What would you like to do?", [
@@ -70,7 +67,7 @@ class Game:
         self.location.onEnter(self)
 
     def exploreMenu(self):
-        print(f"You are in ! {self.location.name}. (HP: {self.character.hp}/{self.character.hpMax})")
+        print(f"You are in {self.location.name}. (HP: {self.character.hp}/{self.character.hpMax})")
         choice = inputMenu("What would you like to do?", [
             "Continue exploring", 
             "Open inventory",
@@ -86,7 +83,7 @@ class Game:
         elif choice == 2:
             InventoryMenu.open(self.character)
         elif choice == 3:
-            self.character.display_stats()
+            self.character.displayStats()
         elif choice == 4:
             print("You decide to return to the village to rest and resupply.")
             self.location = self.location.connections["village"]

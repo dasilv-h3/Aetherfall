@@ -43,7 +43,7 @@ class Enemy:
 
 class Wolf(Enemy):
     def __init__(self, level: int):
-        super().__init__(name="Wolf", level=level, type="Beast", hp=50 + (level * 10), hpMax=50 + (level * 10), strength=10 + (level * 2), defense=5 + (level * 1), minNumberOfAttacks=1, maxNumberOfAttacks=1 + (level // 5))
+        super().__init__(name="Wolf", level=level, type="Beast", hp=40 + (level * 8), hpMax=40 + (level * 8), strength=12 + (level * 2), defense=3 + level, minNumberOfAttacks=1, maxNumberOfAttacks=1 + (level // 3))
     
     def attack(self, character):
         number_of_attacks = self._roll_number_of_attacks()
@@ -58,7 +58,7 @@ class Wolf(Enemy):
 
 class Bandit(Enemy):
     def __init__(self, level: int):
-        super().__init__(name="Bandit", level=level, type="Human", hp=70 + (level * 15), hpMax=70 + (level * 15), strength=15 + (level * 3), defense=10 + (level * 2))
+        super().__init__(name="Bandit", level=level, type="Human", hp=50 + (level * 10), hpMax=50 + (level * 10), strength=14 + (level * 3), defense=6 + (level * 2))
     
     def attack(self, character):
         chance_to_steal = random.random() < 0.01 * self.level # 1% chance to steal per level
@@ -72,11 +72,11 @@ class Bandit(Enemy):
 
 class Skeleton(Enemy):
     def __init__(self, level: int):
-        super().__init__(name="Skeleton", level=level, type="Skeleton", hp=60 + (level * 12), hpMax=60 + (level * 12), strength=12 + (level * 2), defense=8 + (level * 1), attackTypeResistance=["Physical"])
+        super().__init__(name="Skeleton", level=level, type="Skeleton", hp=45 + (level * 10), hpMax=45 + (level * 10), strength=10 + (level * 2), defense=8 + (level * 2), attackTypeResistance=["Physical"])
 
 class CorruptedChampion(Enemy):
     def __init__(self, level: int):
-        super().__init__(name="Corrupted Champion", level=level, type="Demon", hp=100 + (level * 20), hpMax=100 + (level * 20), strength=20 + (level * 4), defense=15 + (level * 3))
+        super().__init__(name="Corrupted Champion", level=level, type="Demon", hp=80 + (level * 15), hpMax=80 + (level * 15), strength=18 + (level * 4), defense=10 + (level * 2))
     
     def skill1(self, character):
         damage = max(0, (self.strength * 1.5) - character.defense)
@@ -87,7 +87,7 @@ class CorruptedChampion(Enemy):
 class Boss(Enemy):
     def __init__(self, level: int):
         self.boss_phase = 1
-        super().__init__(name="Boss", level=level, type="Boss", hp=200 + (level * 50), hpMax=200 + (level * 50), strength=30 + (level * 5), defense=20 + (level * 4))
+        super().__init__(name="Boss", level=level, type="Boss", hp=150 + (level * 30), hpMax=150 + (level * 30), strength=25 + (level * 5), defense=15 + (level * 3))
 
     def skill1(self, character):
         damage = max(0, (self.strength * 2) - character.defense)

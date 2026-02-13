@@ -7,17 +7,29 @@ from item.ItemFactory import ItemFactory
 
 def buildGame() -> Game:
     playerName = input("Enter your character's name: ")
-    player = Warrior(playerName)
+
+    player_class_choice = inputMenu("Choose your class", ["Warrior", "Mage", "Rogue"])
+
+    if player_class_choice == 1:
+        player = Warrior(playerName)
+    elif player_class_choice == 2:
+        player = Mage(playerName)
+    elif player_class_choice == 3:
+        player = Thief(playerName)
+    else:
+        player = Warrior(playerName)  # Default to Warrior if invalid choice
+
     enemy_factory = EnemyFactory()
-    
-    # Initialise l'ItemFactory
     item_factory = ItemFactory()
     
     # Ajoute quelques potions
-    for _ in range(3):
+    for _ in range(2):
         potion = item_factory.createConsumable("Potion de soin")
         if potion:
             player.inventory.addItem(potion)
+    
+    print(f"\nStarting stats:")
+    player.displayStats()
 
     village = VillageState()
     forest = ForestState(enemy_factory)
