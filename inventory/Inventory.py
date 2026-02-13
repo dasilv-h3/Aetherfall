@@ -98,6 +98,8 @@ class Inventory:
         return result
     
     def getItemsByType(self, item_type: ItemType) -> List[Item]:
+        print(f"Getting items of type: {item_type}")
+        print(f"Current inventory items: {[item.name for item in self.items]}")
         return [item for item in self.items if item.item_type == item_type]
     
     def getWeapons(self) -> List[Weapon]:

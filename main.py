@@ -23,10 +23,13 @@ def buildGame() -> Game:
     item_factory = ItemFactory()
     
     # Ajoute quelques potions
-    for _ in range(3):
+    for _ in range(2):
         potion = item_factory.createConsumable("Potion de soin")
         if potion:
             player.inventory.addItem(potion)
+    
+    print(f"\nStarting stats:")
+    player.displayStats()
 
     village = VillageState()
     forest = ForestState(enemy_factory)

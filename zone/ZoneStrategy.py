@@ -51,8 +51,8 @@ class ForestStrategy(ZoneStrategy):
             return CombatEvent(enemy)
         else:
             self.remaining_chests -= 1
-            if self.key_can_drop and random.random() < 0.1: # TODO : Adjust drop chance as needed and player inventory conditions
+            if  self.key_can_drop and random.random() < 0.1:
                 self.key_can_drop = False
-                return ChestEvent(loot_table=["Dungeon Key"])
+                return ChestEvent(["Clé du donjon"])
 
             return ChestEvent()

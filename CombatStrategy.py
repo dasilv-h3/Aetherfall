@@ -249,7 +249,7 @@ class CombatSystem:
             action = AttackAction()
             result = action.execute(self.enemy, self.player, self.combat_state)
             print(f"{result['text']}")
-            print(f"🧍 {self.player.name}: {result['defender_hp']}/{self.player.hpMax} HP")
+            print(f"{self.player.name}: {result['defender_hp']}/{self.player.hpMax} HP")
         
         elif action_choice < 0.85 or not hasattr(self.enemy, 'skill1'):  # 15% chance de se défendre
             action = DefendAction()

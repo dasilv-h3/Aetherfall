@@ -5,7 +5,7 @@
       "minimalLevel": 1,
       "type": "weapon",
       "modifierType": "add",
-      "value": 5,
+      "value": 8,
       "affectedStats": ["strength"],
       "apparitionRate": 50
     },
@@ -14,7 +14,7 @@
       "minimalLevel": 3,
       "type": "weapon",
       "modifierType": "add",
-      "value": 8,
+      "value": 10,
       "affectedStats": ["intelligence"],
       "apparitionRate": 30
     },
@@ -23,7 +23,7 @@
       "minimalLevel": 2,
       "type": "weapon",
       "modifierType": "add",
-      "value": 4,
+      "value": 6,
       "affectedStats": ["agility", "critChance"],
       "apparitionRate": 40
     },
@@ -32,7 +32,7 @@
       "minimalLevel": 10,
       "type": "weapon",
       "modifierType": "add",
-      "value": 15,
+      "value": 20,
       "affectedStats": ["strength"],
       "apparitionRate": 5
     },
@@ -41,7 +41,7 @@
       "minimalLevel": 5,
       "type": "weapon",
       "modifierType": "add",
-      "value": 10,
+      "value": 12,
       "affectedStats": ["strength"],
       "apparitionRate": 25
     }
@@ -52,7 +52,7 @@
       "minimalLevel": 1,
       "type": "armor",
       "modifierType": "add",
-      "value": 3,
+      "value": 4,
       "affectedStats": ["defense"],
       "apparitionRate": 50
     },
@@ -61,7 +61,7 @@
       "minimalLevel": 2,
       "type": "armor",
       "modifierType": "add",
-      "value": 2,
+      "value": 3,
       "affectedStats": ["defense", "intelligence"],
       "apparitionRate": 35
     },
@@ -70,7 +70,7 @@
       "minimalLevel": 5,
       "type": "armor",
       "modifierType": "add",
-      "value": 8,
+      "value": 10,
       "affectedStats": ["defense"],
       "apparitionRate": 20
     },
@@ -79,7 +79,7 @@
       "minimalLevel": 12,
       "type": "armor",
       "modifierType": "add",
-      "value": 15,
+      "value": 18,
       "affectedStats": ["defense", "hpMax"],
       "apparitionRate": 3
     },
@@ -88,7 +88,7 @@
       "minimalLevel": 1,
       "type": "armor",
       "modifierType": "add",
-      "value": 2,
+      "value": 3,
       "affectedStats": ["defense", "agility"],
       "apparitionRate": 45
     }
@@ -120,6 +120,15 @@
       "value": 25,
       "affectedStats": ["damage"],
       "apparitionRate": 30
+    },
+    {
+      "name": "Clé du donjon",
+      "minimalLevel": 1,
+      "type": "consumable",
+      "modifierType": "add",
+      "value": 0,
+      "affectedStats": ["access"],
+      "apparitionRate": 0
     }
   ]
 }
